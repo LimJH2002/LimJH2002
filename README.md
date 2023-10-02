@@ -14,7 +14,8 @@
 
 ![](https://github-readme-stats-limjh2002.vercel.app/api?username=LimJH2002&theme=dark&hide_border=false&include_all_commits=true&count_private=true)<br/>
 ![](https://github-readme-stats-limjh2002.vercel.app/?user=LimJH2002&theme=dark&hide_border=false)<br/>
-![](https://github-readme-stats-limjh2002.vercel.app/api/top-langs/?username=LimJH2002&theme=dark&hide_border=false&include_all_commits=true&count_private=true&layout=compact&hide=python)
+
+<!-- ![](https://github-readme-stats-limjh2002.vercel.app/api/top-langs/?username=LimJH2002&theme=dark&hide_border=false&include_all_commits=true&count_private=true&layout=compact&count_weight=0&size_weight=0.5) -->
 
 ### 📜 Random Dev Quote
 
