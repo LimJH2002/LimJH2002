@@ -1,0 +1,1 @@
+sed -i 's/&v=[0-9]*/&v=$((`date +%s`/86400))/' README.md
