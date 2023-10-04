@@ -2,7 +2,7 @@ name: Update README
 
 on:
   schedule:
-    - cron: '0 0 * * *' # This will run the job every day at midnight
+    - cron: '14 0 * * *'
 
 jobs:
   update:
@@ -11,6 +11,10 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
+
+    - name: Create and switch to new branch
+      run: |
+        git checkout -b automated-updates
 
     - name: Update README.md
       run: |
@@ -23,4 +27,4 @@ jobs:
         git config --local user.name "GitHub Action"
         git add README.md
         git commit -m "Update &v value in README.md"
-        git push
+        git push -u origin automated-updates
