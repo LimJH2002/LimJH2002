@@ -21,10 +21,11 @@ jobs:
         days_since_epoch=$((`date +%s`/86400))
         sed -i "s/\(&v=\)[0-9]*/\1$days_since_epoch/g" README.md
 
-    - name: Commit and push changes
+    - name: Pull, commit and push changes
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git add README.md
         git commit -m "Update &v value in README.md"
-        git push -u origin automated-updates
+        git pull origin automated-updates --rebase
+        git push origin automated-updates
