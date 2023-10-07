@@ -15,22 +15,22 @@ jobs:
     if: github.actor != 'github-actions[bot]'
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-    - name: Create and switch to new branch
-      run: |
-        git checkout -b automated-updates
+      - name: Create and switch to new branch
+        run: |
+          git checkout -b automated-updates
 
-    - name: Update README.md
-      run: |
-        days_since_epoch=$((`date +%s`/86400))
-        sed -i "s/\(&v=\)[0-9]*/\1$days_since_epoch/g" README.md
+      - name: Update README.md
+        run: |
+          days_since_epoch=$((`date +%s`/86400))
+          sed -i "s/\(&v=\)[0-9]*/\1$days_since_epoch/g" README.md
 
-    - name: Pull, commit and push changes
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git add README.md
-        git commit -m "Update &v value in README.md"
-        git push -f origin automated-updates
+      - name: Pull, commit and push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add README.md
+          git commit -m "Update &v value in README.md"
+          git push -f origin automated-updates
