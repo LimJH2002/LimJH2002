@@ -29,8 +29,8 @@ jobs:
       - name: Update README.md
         run: |
           days_since_epoch=$((`date +%s`/86400))
-          random_number=$(( RANDOM % 100 + 1 ))
-          sed -i "s/\(&v=\)[0-9]*/\1$days_since_epoch/g" README.md
+          random_number=$(( days_since_epoch % RANDOM ))
+          sed -i "s/\(&v=\)[0-9]*/\1$random_number/g" README.md
 
       - name: Commit and push changes
         run: |
