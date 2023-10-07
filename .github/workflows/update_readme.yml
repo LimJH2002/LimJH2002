@@ -6,12 +6,12 @@ name: Update README
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   update:
     runs-on: ubuntu-latest
-    
+
     if: github.actor != 'github-actions[bot]'
 
     steps:
