@@ -29,7 +29,7 @@ jobs:
         run: |
           days_since_epoch=$((`date +%s`/86400))
           random_number=$(( RANDOM % 100 + 1 ))
-          sed -i "s/\(&v=\)[0-9]*/\1$random-number/g" README.md
+          sed -i "s/\(&v=\)[0-9]*/\1$random_number/g" README.md
 
       - name: Commit and push changes
         run: |
