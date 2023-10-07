@@ -20,7 +20,7 @@ jobs:
     steps:
       - name: Check for merge PR commit
         run: |
-          if contains(github.event.head_commit.message, 'Merge '); then
+          if echo "${{ github.event.head_commit.message }}" | grep -q "Merge "; then
             echo "Detected a merge PR commit. Exiting early."
             exit 0
           fi
