@@ -15,22 +15,38 @@ jobs:
     if: github.actor != 'github-actions[bot]'
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+    - name: Checkout repository
+      uses: actions/checkout@v2
 
-      - name: Create and switch to new branch
-        run: |
-          git checkout -b automated-updates
+    - name: Rebase from main
+      run: |
+        git checkout main
+        git pull
+        git checkout automated-updates
+        git rebase main
 
-      - name: Update README.md
-        run: |
-          days_since_epoch=$((`date +%s`/86400))
-          sed -i "s/\(&v=\)[0-9]*/\1$days_since_epoch/g" README.md
+    - name: Update README.md
+      run: |
+        days_since_epoch=$((`date +%s`/86400))
+        sed -i "s/\(&v=\)[0-9]*/\1$days_since_epoch/g" README.md
 
-      - name: Pull, commit and push changes
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add README.md
-          git commit -m "Update &v value in README.md"
-          git push -f origin automated-updates
+    - name: Commit and push changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add README.md
+        git commit -m "Update &v value in README.md"
+        git push origin automated-updates
+
+    - name: Install GitHub CLI
+      run: |
+        sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key C99B11DEB97541F0
+        sudo apt-add-repository https://cli.github.com/packages
+        sudo apt update
+        sudo apt install gh
+
+    - name: Create Pull Request and Merge
+      run: |
+        gh auth login --with-token <<< "${{ secrets.README }}"
+        PR_URL=$(gh pr create --base main --head automated-updates --title "Update &v value in README.md" --body "Automated update of &v value." --draft)
+        gh pr merge $(basename $PR_URL) --merge
