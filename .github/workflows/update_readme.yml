@@ -40,6 +40,7 @@ jobs:
             echo "No changes to commit"
           else
             git commit -m "Update &v value in README.md"
+            git pull origin automated-updates --rebase
             git push origin automated-updates
           fi
 
