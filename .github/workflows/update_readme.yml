@@ -35,8 +35,12 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add README.md
-          git commit -m "Update &v value in README.md"
-          git push origin automated-updates
+          if git diff-index --quiet HEAD --; then
+            echo "No changes to commit"
+          else
+            git commit -m "Update &v value in README.md"
+            git push origin automated-updates
+          fi
 
       - name: Install GitHub CLI
         run: |
