@@ -2,7 +2,7 @@ name: Update README
 
 on:
   schedule:
-    - cron: '24 9 * * *'
+    - cron: '35 9 * * *'
 
 jobs:
   update:
@@ -27,5 +27,4 @@ jobs:
         git config --local user.name "GitHub Action"
         git add README.md
         git commit -m "Update &v value in README.md"
-        git pull origin automated-updates --rebase
-        git push origin automated-updates
+        git push -f origin automated-updates
