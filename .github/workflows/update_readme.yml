@@ -10,21 +10,13 @@ on:
 
 jobs:
   update:
-    runs-on:
-      ubuntu-latest
+    runs-on: ubuntu-latest
 
-      # Ensure the workflow doesn't run for the GitHub Actions bot or for merge commits
+    # Ensure the workflow doesn't run for the GitHub Actions bot or for merge commits
     if: |
-      github.actor != 'github-actions[bot]'
+      github.actor != 'github-actions[bot]' && !contains(github.event.head_commit.message, 'Merge pull request')
 
     steps:
-      - name: Check for merge PR commit
-        run: |
-          if echo "${{ github.event.head_commit.message }}" | grep -q "Merge "; then
-            echo "Detected a merge PR commit. Exiting early."
-            exit 0
-          fi
-
       - name: Checkout repository
         uses: actions/checkout@v2
 
