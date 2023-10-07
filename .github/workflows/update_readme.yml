@@ -49,3 +49,8 @@ jobs:
           gh auth login --with-token <<< "${{ secrets.README }}"
           PR_URL=$(gh pr create --base main --head automated-updates --title "Update &v value in README.md" --body "Automated update of &v value.")
           gh pr merge $(basename $PR_URL) --merge
+
+      - name: Delete branch on failure
+        if: failure()
+        run: |
+          git push origin --delete automated-updates
