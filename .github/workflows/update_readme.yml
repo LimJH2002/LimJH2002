@@ -22,7 +22,8 @@ jobs:
       run: |
         git checkout main
         git pull
-        git checkout automated-updates
+        git branch -D automated-updates || true  # Delete the branch if it exists, ignore if it doesn't
+        git checkout -b automated-updates
         git rebase main
 
     - name: Update README.md
