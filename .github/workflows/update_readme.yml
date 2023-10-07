@@ -24,7 +24,6 @@ jobs:
         git pull
         git branch -D automated-updates || true  # Delete the branch if it exists, ignore if it doesn't
         git checkout -b automated-updates
-        git rebase main
 
     - name: Update README.md
       run: |
@@ -49,5 +48,5 @@ jobs:
     - name: Create Pull Request and Merge
       run: |
         gh auth login --with-token <<< "${{ secrets.README }}"
-        PR_URL=$(gh pr create --base main --head automated-updates --title "Update &v value in README.md" --body "Automated update of &v value." --draft)
+        PR_URL=$(gh pr create --base main --head automated-updates --title "Update &v value in README.md" --body "Automated update of &v value.")
         gh pr merge $(basename $PR_URL) --merge
