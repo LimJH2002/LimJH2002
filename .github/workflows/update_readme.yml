@@ -1,4 +1,4 @@
-name: Update README Daily 
+name: Update README Daily
 
 # on:
 #   schedule:
@@ -10,9 +10,12 @@ on:
 
 jobs:
   update:
-    runs-on: ubuntu-latest
+    runs-on:
+      ubuntu-latest
 
-    if: github.actor != 'github-actions[bot]'
+      # Ensure the workflow doesn't run for the GitHub Actions bot or for merge commits
+    if: |
+      github.actor != 'github-actions[bot]' && !contains(github.event.head_commit.message, 'Merge pull request')
 
     steps:
       - name: Checkout repository
@@ -40,7 +43,6 @@ jobs:
             echo "No changes to commit"
           else
             git commit -m "Update &v value in README.md"
-            git pull origin automated-updates --rebase
             git push origin automated-updates
           fi
 
