@@ -1,4 +1,4 @@
-name: Update README Daily
+name: Update README Daily at 12am
 
 # on:
 #   schedule:
