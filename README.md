@@ -1,6 +1,6 @@
 # 💫 About Me:
 
-🔭 I’m currently working on GymLah! & Shine & Fluxhub<br>👯 I’m looking to collaborate on Web3 Projects & Any other web apps<br>🤝 I’m looking for help with getting into the Web3 space<br>🌱 I’m currently learning Blockchain, Web3, Solana and entrepreneurship<br>💬 Ask me about react, nextjs, tailwind
+🔭 I’m currently working on getting my startup up and running<br>👯 I’m looking to collaborate on Web3 Projects, AI/ML Projects, and Business Ideas that involve computing for social good<br>🤝 I’m looking for help with getting into the Web3 space and navigating the Cybersecurity industry<br>🌱 I’m currently learning AI&ML, Blockchain, Web3, Cybersecurity and Entrepreneurship
 
 ## 🌐 Socials:
 
