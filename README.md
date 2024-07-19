@@ -12,7 +12,7 @@
 
 # 📊 GitHub Stats:
 
-![](https://github-readme-stats-limjh2002.vercel.app/api?username=LimJH2002&theme=dark&hide_border=false&include_all_commits=true&count_private=true&v=19921-number)<br/>
+![](https://github-readme-stats-limjh2002.vercel.app/api?username=LimJH2002&theme=dark&hide_border=false&include_all_commits=true&count_private=true&v=19923-number)<br/>
 <!-- ![](https://github-readme-stats-limjh2002.vercel.app/?user=LimJH2002&theme=dark&hide_border=false)<br/> -->
 
 <!-- ![](https://github-readme-stats-limjh2002.vercel.app/api/top-langs/?username=LimJH2002&theme=dark&hide_border=false&include_all_commits=true&count_private=true&layout=compact&count_weight=0&size_weight=0.5) -->
